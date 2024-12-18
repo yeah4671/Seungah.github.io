@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>승아</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', 'Arial', sans-serif;
+            font-size: 18px;
+            line-height: 1.95;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        div {
+            text-align: left;
+            max-width: 800px;
+        }
+        span {
+            display: inline;
+            user-select: text;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .highlight {
+            background-color: #EFAEC4; 
+            transition: background-color 0.3s ease; 
+        } 
+      
+        .no-highlight {
+            pointer-events: none; 
+            cursor: default; 
+        }
+      /* 이게 뭐냐면요 사람마다 메인페이지 통글에 포함 된 문장이 다르자나요?
+          예를들어 "효정이가 [사과를]먹었다 에서 [사과를]만 메인페이지 글에 들어갔다면, 내부 설명 페이지에 들어갔을때도 그 단어에만 하이라이트가 됩니다. 
+          그리고 그 부분을 클릭해야?!?!?!?! 진짜 그사람의 사이트로 연결되규요 !! 밑에 링크 거는 곳 있어용 에시 페이지 주소니까 각 개인의 주소 넣으시면 됩니당. 모르시는 거 항시 물어보시고용 ~~*/
+         /* */
+         /*그르니까 메인 페이지는 제가 단톡에 보낸 동영상에서 보실 수 있어여. 디자인팀 피그마 링크에서 보면 좀 더 이해될 거요. 메인페이지에 총 22분의 글이 합쳐서 쓰여있고,
+ 클릭하면 각 글 조각마다 지정된 색들이 알아서 하이라이트 됩니다. 동영상 보면 좀 더 이해가 될 거야 ~) 그리고 그 하이라이트 된 부분을 한 번 더 누르면 개인의 설명페이지로 이동하고요,
+ 그 설명페이지에 하이라이트 된 단락을 클릭하면 최종 개인 페이지가 나온다고 보시면 됩니다. 용갱 수민씨는 지금 총 22분의 설명하는 페이지를 열분씩 나눠서 만들어주시면 될 것 같아요ㅎㅎ. 이해 안되시먄 바로 연락 . 이해 안되시먄 바로 연락 @@   */
+    </style>
+</head>
+<body>
+    <div>
+        <span class="no-highlight">“것+것”은 글이 가진 본질과 그 변화를 시각적으로 드러내고자 시작한 사이트입니다. 글자는 처음에는 명확하게 읽히지만, 시간이 흐를수록 다양한 사람들의 해석이 더해지면서 의미는 변하거나 흐려집니다. 글은</span>
+        <span>사라지는 듯하지만 흔적을 남기고, 그 흔적은 또 다른 새로운 글을 요구합니다.</span>
+        <span class="no-highlight">이 사이트는 글과 반응형 디자인을 통해 이러한 과정을 시각적으로 표현합니다.</span>
+        <span class="no-highlight">처음에는 명확하게 보이던 문장이 클릭과 함께 흐려지고 퍼져 나가며, 중심에 자리한 색의 그라데이션은 글이 읽히는 과정 속에서 다양한 의미와 해석이 중첩되고 흐려지는 모습을 시각화합니다. 색은 문장이 흐려질수록 점차 퍼져 나가고, 글은 점점 형태를 잃어갑니다. 하지만 이 과정이 끝이 아니라, 글은 새롭게 시작되기도 하고 또는 또 다른 의미로 남겨지기도 합니다.</span>
+        <span class="no-highlight">‘다른’이라는 글이 다시 새롭게 재배치됩니다. 같은 문장이지만 순서가 바뀌면서 새로운 의미와 해석이 만들어집니다. 이는 글이 단단한 의미에 고정되지 않고, 독자의 시선과 해석에 따라 끊임없이 변하고 새롭게 읽힌다는 점을 보여줍니다.
+        이 프로젝트를 통해 저는 글이 단순히 읽히는 것에 그치지 않고, 각자의 해석과 시선에 따라 새로운 가능성을 만들어낸다는 점을 시각적으로 전달하고 싶었습니다. 이제 이 글을 읽는 당신의 해석이 더해지면, 이 사이트에 담긴 글들은 또 다른 의미와 해석을 품게 될 것입니다.</span>
+    </div>
+    <script>
+       
+        const spans = document.querySelectorAll('span');
+
+        
+        let lastClicked = null;
+
+       
+        spans.forEach(span => {
+            span.addEventListener('click', () => {
+                // 'no-highlight' 클래스를 가진 단락은 하이라이트가 나타나지 않아용 ~~
+                if (span.classList.contains('no-highlight')) return;
+
+                // 이미 하이라이트된 단락을 눌렀을때 ~~@@
+                if (span === lastClicked) {
+                    window.location.href = 'https://output.jsbin.com/topunixoro/3'; // 링크 넣으시면 됩니두. 이게 그 레알 사이트 주소! 
+                    return;
+                }
+
+                
+                spans.forEach(s => s.classList.remove('highlight'));
+
+                // 클릭한 span에만 하이라이트를 추가하게 해둔거구용 
+                span.classList.add('highlight');
+
+                // 이것은 마지막으로 하이라이트 된 문장 냅두기 티비 
+                lastClicked = span;
+            });
+        });
+    </script>
+</body>
+</html>
